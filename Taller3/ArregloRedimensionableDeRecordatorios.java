@@ -1,6 +1,6 @@
 package aed;
 
-class ArregloRedimensionableDeRecordatorios implements SecuenciaDeRecordatorios {
+class ArregloRedimensionableDeRecordatorios implements SecuenciaDeRecordatorios{
 
     private Recordatorio[] recordatorios;
 
@@ -20,9 +20,9 @@ class ArregloRedimensionableDeRecordatorios implements SecuenciaDeRecordatorios 
     }
 
     public void agregarAtras(Recordatorio i) {
-        Recordatorio[] res = new Recordatorio[this.recordatorios.length+1];
-        for (int j = 0; j < this.recordatorios.length; j++) {res[j] = this.recordatorios[j];}
-        res[res.length-1] = i;
+        Recordatorio[] res = new Recordatorio[this.longitud()+1];
+        for (int j = 0; j < this.longitud(); j++){res[j] = this.recordatorios[j];}
+        res[this.longitud()] = i;
         this.recordatorios = res;
     }
 
@@ -41,8 +41,7 @@ class ArregloRedimensionableDeRecordatorios implements SecuenciaDeRecordatorios 
     }
 
     public ArregloRedimensionableDeRecordatorios copiar() {
-        ArregloRedimensionableDeRecordatorios res = new ArregloRedimensionableDeRecordatorios();
-        for (int i = 0; i < this.recordatorios.length; i++) {res.recordatorios[i] = this.recordatorios[i];}
+        ArregloRedimensionableDeRecordatorios res = new ArregloRedimensionableDeRecordatorios(this);
         return res;
     }
 }
