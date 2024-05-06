@@ -15,6 +15,15 @@ public class Recordatorio {
         this.fecha = fecha2;
     }
 
+    public Recordatorio(Recordatorio recordatorio) {
+        String mensaje2 = new String(recordatorio.mensaje);
+        Fecha fecha2 = new Fecha(recordatorio.fecha);
+        Horario horario2 = new Horario(recordatorio.horario);
+        this.mensaje = mensaje2;
+        this.horario = horario2;
+        this.fecha = fecha2;
+    }
+
     public Horario horario() {
         Horario res = new Horario(this.horario);
         return res;
@@ -41,6 +50,6 @@ public class Recordatorio {
             return false;
         }
         Recordatorio otroRecordatorio = (Recordatorio) otro;
-        return (this.fecha == otroRecordatorio.fecha && this.horario == otroRecordatorio.horario && this.mensaje.equals(otroRecordatorio.mensaje));
+        return (this.fecha.equals(otroRecordatorio.fecha) && this.horario.equals(otroRecordatorio.horario) && this.mensaje.equals(otroRecordatorio.mensaje));
     }
 }
