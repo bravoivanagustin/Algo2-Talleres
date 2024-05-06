@@ -8,6 +8,7 @@ public class Agenda {
     public Agenda(Fecha fechaActual) {
         Fecha res = new Fecha(fechaActual);
         this.fechaActual = res;
+        this.recordatorios = new ArregloRedimensionableDeRecordatorios();
     }
 
     public Fecha fechaActual() {
@@ -21,14 +22,13 @@ public class Agenda {
 
     @Override
     public String toString() {
-        String res = new String(this.fechaActual.toString()+"\n=====");
+        String res = new String(this.fechaActual.toString() + "\n" + "=====\n");
         for (int i = 0; i < this.recordatorios.longitud(); i++){
             if (this.recordatorios.obtener(i).fecha().equals(this.fechaActual)) 
-                {res = res + "\n" + this.recordatorios.obtener(i).toString();}
+                {res = res + this.recordatorios.obtener(i).toString() + "\n";}
         }
         return res;
     }
-
     public void incrementarDia() {
         this.fechaActual.incrementarDia();
     }
