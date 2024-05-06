@@ -40,6 +40,6 @@ public class Horario {
             return false;
         }
         Horario otroHorario = (Horario) otro;
-        return (this.minutos == otroHorario.minutos && this.hora == otroHorario.hora);
+        return (this.hora == otroHorario.hora && this.minutos == otroHorario.minutos);
     }
 }
