@@ -29,6 +29,7 @@ public class Agenda {
         }
         return res;
     }
+
     public void incrementarDia() {
         this.fechaActual.incrementarDia();
     }
