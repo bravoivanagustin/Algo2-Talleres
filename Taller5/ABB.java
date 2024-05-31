@@ -62,7 +62,7 @@ public class ABB<T extends Comparable<T>> implements Conjunto<T> {
 
     public boolean pertenece(T elem){
         Nodo actual = this.raiz;
-        while (actual != null && actual.valor != elem) {
+        while (actual != null && !actual.valor.equals(elem)) {
             if (elem.compareTo(actual.valor) > 0) {actual = actual.der;}
             else {actual = actual.izq;}
         }
@@ -80,7 +80,7 @@ public class ABB<T extends Comparable<T>> implements Conjunto<T> {
         
         Nodo actual = this.raiz;
 
-        while (actual.valor != elem){
+        while (!actual.valor.equals(elem)){
             if (elem.compareTo(actual.valor) > 0) {actual = actual.der;}
             else {actual = actual.izq;}
             }
@@ -88,16 +88,13 @@ public class ABB<T extends Comparable<T>> implements Conjunto<T> {
         if (actual.der == actual.izq) {actual = null;}
 
         else if (actual.der == null || actual.izq == null) {
-            if (actual.der != null){
-                actual.der.papi = actual.papi;
-            }
-            else{
-                actual.izq.papi = actual.papi;
-            }
+            if (actual.der != null) {actual.der.papi = actual.papi;}
+            else {actual.izq.papi = actual.papi;}
         }
 
         else if (actual.der != null && actual.izq != null) {
-
+            Nodo suc = sucesor(actual);
+            suc.papi = actual.papi;
         }
 
         longitud --;
@@ -106,8 +103,16 @@ public class ABB<T extends Comparable<T>> implements Conjunto<T> {
     }
 
     public String toString(){
-        throw new UnsupportedOperationException("No implementada aun");
+        String res = "";
+        return res;
+        }
+
+    private String toString(Nodo n){
+        String res = "";
+        //if ()
+        return res;
     }
+
 
     private class ABB_Iterador implements Iterador<T> {
         private Nodo _actual;
